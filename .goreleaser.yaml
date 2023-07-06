@@ -1,0 +1,51 @@
+project_name: goreleaser-testing
+
+before:
+    hooks:
+        - go mod tidy
+
+builds:
+    - binary: goreleaser-testing
+      env:
+          - CGO_ENABLED=0
+      goos:
+          - darwin
+          - freebsd
+          - linux
+          - windows
+
+checksum:
+    name_template: 'checksums.txt'
+
+snapshot:
+    name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+    sort: asc
+    filters:
+        exclude:
+            - '^docs:'
+            - '^test:'
+
+universal_binaries:
+    - replace: true
+
+release:
+    github:
+        owner: robinovitch61
+        name: goreleaser-testing
+
+brews:
+    - homepage: https://github.com/robinovitch61/goreleaser-testing
+      description: "Goreleaser testing description"
+      folder: Formula
+      tap:
+          owner: robinovitch61
+          name: homebrew-tap
+          branch: main
+          token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+      commit_author:
+          name: goreleaserbot
+          email: goreleaserbot@theleo.zone
+      install: |
+          bin.install "goreleaser-testing"
