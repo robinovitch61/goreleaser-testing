@@ -51,7 +51,7 @@ brews:
     - homepage: https://github.com/robinovitch61/goreleaser-testing
       description: "Goreleaser testing description"
       folder: Formula
-      tap:
+      repository:
           owner: robinovitch61
           name: homebrew-tap
           branch: main
