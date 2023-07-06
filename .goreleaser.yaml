@@ -50,9 +50,7 @@ release:
 brews:
     - name: goreleaser-template
       url_template: >-
-          https://github.com/robinovitch61/goreleaser-testing/releases/download/{{ .Version }}/
-          {{ .ProjectName }}_
-          {{ .Version }}_
+          https://github.com/robinovitch61/goreleaser-testing/releases/download/{{ .Version }}/{{ .ProjectName }}_{{ .Version }}_
           {{- if eq .Os "darwin" }}Darwin
           {{- else if eq .Os "linux" }}Linux
           {{- else if eq .Os "windows" }}Windows
