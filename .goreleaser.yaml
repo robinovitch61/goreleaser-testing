@@ -16,8 +16,7 @@ builds:
 
 archives:
     - name_template: >-
-        {{ .ProjectName }}_
-        {{ .Version }}_
+        {{ .ProjectName }}_{{ .Version }}_
         {{- if eq .Os "darwin" }}Darwin
         {{- else if eq .Os "linux" }}Linux
         {{- else if eq .Os "windows" }}Windows
