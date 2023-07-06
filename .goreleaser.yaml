@@ -48,16 +48,27 @@ release:
         name: goreleaser-testing
 
 brews:
-    - homepage: https://github.com/robinovitch61/goreleaser-testing
+    - name: goreleaser-template
+      url_template: >-
+          https://github.com/robinovitch61/goreleaser-testing/releases/download/{{ .Version }}/
+          {{ .ProjectName }}_
+          {{ .Version }}_
+          {{- if eq .Os "darwin" }}Darwin
+          {{- else if eq .Os "linux" }}Linux
+          {{- else if eq .Os "windows" }}Windows
+          {{- else }}{{ .Os }}{{ end }}_
+          {{- if eq .Arch "amd64" }}x86_64
+          {{- else if eq .Arch "386" }}i386
+          {{- else }}{{ .Arch }}{{ end }}
+      homepage: https://github.com/robinovitch61/goreleaser-testing
       description: "Goreleaser testing description"
       folder: Formula
+      commit_author:
+          name: goreleaserbot
+          email: goreleaserbot@theleo.zone
+      commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
       repository:
           owner: robinovitch61
           name: homebrew-tap
           branch: main
           token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-      commit_author:
-          name: goreleaserbot
-          email: goreleaserbot@theleo.zone
-      install: |
-          bin.install "goreleaser-testing"
