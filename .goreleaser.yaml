@@ -61,5 +61,20 @@ brews:
       branch: main
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 
+nix:
+  - name: goreleaser-testing
+    commit_author:
+      name: "Leo Robinovitch"
+      email: "leorobinovitch@gmail.com"
+    homepage: https://github.com/robinovitch61/goreleaser-testing
+    description: "Goreleaser testing description"
+    license: "MIT"
+    skip_upload: auto
+    repository:
+      owner: robinovitch61
+      name: nur-packages
+      branch: main
+      token: "{{ .Env.NUR_PACKAGES_GITHUB_TOKEN }}"
+
 gomod:
   proxy: true
