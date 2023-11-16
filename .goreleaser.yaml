@@ -68,7 +68,7 @@ nix:
       email: "leorobinovitch@gmail.com"
     homepage: https://github.com/robinovitch61/goreleaser-testing
     description: "Goreleaser testing description"
-    license: "MIT"
+    license: "mit"  # must be lowercase
     skip_upload: auto
     repository:
       owner: robinovitch61
