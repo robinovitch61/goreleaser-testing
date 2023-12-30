@@ -26,7 +26,7 @@ jobs:
       - name: Install Chocolatey
         uses: crazy-max/ghaction-chocolatey@v3
         with:
-          args: ''
+          args: -h
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
