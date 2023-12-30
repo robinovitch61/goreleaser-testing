@@ -23,12 +23,14 @@ jobs:
           fetch-depth: 0
       - name: Install Nix
         uses: cachix/install-nix-action@v23
+      - name: Install Chocolatey
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: ''
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: '1.21'
-      - name: Set up Chocolatey
-        uses: crazy-max/ghaction-chocolatey@v3
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v4
         with:
