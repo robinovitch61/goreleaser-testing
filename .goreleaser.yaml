@@ -12,6 +12,7 @@ builds:
       - darwin
       - freebsd
       - linux
+      - windows
 
 archives:
   - name_template: >-
