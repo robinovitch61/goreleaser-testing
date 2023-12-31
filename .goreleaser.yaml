@@ -76,6 +76,26 @@ nix:
       branch: main
       token: "{{ .Env.NUR_PACKAGES_GITHUB_TOKEN }}"
 
+winget:
+  - publisher: robinovitch61
+    license: MIT
+    copyright: "Leo Robinovitch"
+    homepage: https://github.com/robinovitch61/goreleaser-testing
+    short_description: "Goreleaser testing description"
+    package_identifier: "robinovitch61.goreleaser-testing"
+    repository:
+      owner: "robinovitch61"
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+      name: winget-pkgs
+      branch: "{{.ProjectName}}-{{.Version}}"
+      pull_request:
+        enabled: true
+        draft: false
+        base:
+          owner: microsoft
+          name: winget-pkgs
+          branch: master
+
 chocolateys:
   - owners: "Leo Robinovitch"
     authors: "Leo Robinovitch"
