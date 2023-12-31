@@ -15,6 +15,9 @@ builds:
       - windows
 
 archives:
+  - format_overrides:
+    - goos: windows
+      format: zip
   - name_template: >-
       {{ .ProjectName }}_{{ .Version }}_
       {{- if eq .Os "darwin" }}Darwin
